@@ -88,7 +88,7 @@ FLNO int,
 FDate varchar(15),
 ActDept varchar(15),
 ActArr varchar(15),
-Pilot varchar(15),
+Pilot int,
 PRIMARY KEY (Seq, FLNO, FDate),
 FOREIGN KEY (Seq, FLNO) references FlightLeg(Seq, FLNO),
 FOREIGN KEY (FLNO, FDate) references FlightInstance(FLNO, FDate)
