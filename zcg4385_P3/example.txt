@@ -1,0 +1,102 @@
+V3.
+
+This view can be created different ways. You need self join over Airport to create source AND Destination AND JOIN WITH FlightLeg , FlightLegInstance, Pilot
+
+Output:
+
++----+---------+------+------------+----------------+----------------+
+
+| ID | Name    | FLNO | FDate      | F              | T              |
+
++----+---------+------+------------+----------------+----------------+
+
+|  1 | Jones   | 100  | 2015-10-06 | Chicago        | Dallas         |
+
+|  1 | Jones   | 500  | 2015-10-08 | Ft. Lauderdale | Chicago        |
+
+|  1 | Jones   | 500  | 2015-10-08 | Chicago        | Los Angeles    |
+
+|  2 | Smith   | 200  | 2015-10-06 | San Francisco  | Chicago        |
+
+|  2 | Smith   | 200  | 2015-10-06 | Chicago        | New York       |
+
+|  2 | Smith   | 700  | 2015-10-08 | New York       | Dallas         |
+
+|  3 | Walker  | 400  | 2015-10-08 | Los Angeles    | Houston        |
+
+|  3 | Walker  | 400  | 2015-10-08 | Houston        | Ft. Lauderdale |
+
+|  3 | Walker  | 600  | 2015-10-06 | Dallas         | Baltimore      |
+
+|  4 | Daniel  | 100  | 2015-10-08 | Chicago        | Dallas         |
+
+|  4 | Daniel  | 500  | 2015-10-06 | Chicago        | Los Angeles    |
+
+|  5 | Samuel  | 400  | 2015-10-06 | Los Angeles    | Houston        |
+
+|  5 | Samuel  | 400  | 2015-10-06 | Houston        | Ft. Lauderdale |
+
+|  5 | Samuel  | 600  | 2015-10-08 | Dallas         | Baltimore      |
+
+|  6 | Allan   | 200  | 2015-10-08 | San Francisco  | Chicago        |
+
+|  6 | Allan   | 200  | 2015-10-08 | Chicago        | New York       |
+
+|  6 | Allan   | 500  | 2015-10-06 | Ft. Lauderdale | Chicago        |
+
+|  7 | Madison | 300  | 2015-10-06 | Dallas         | New York       |
+
+|  8 | Ryan    | 300  | 2015-10-08 | Dallas         | New York       |
+
+|  8 | Ryan    | 700  | 2015-10-06 | New York       | Dallas         |
+
++----+---------+------+------------+----------------+----------------+
+
+V4.
+
+This view is created based on FlightLegInstance and Pilot
+
+In V4, You can use  MONTH() , YEAR(), DAY() FUNCTIONS for extracting month/year in this view if you think you need it.
+
+for more detail, read following Link:
+
+https://docs.microsoft.com/en-us/sql/t-sql/functions/month-transact-sql?view=sql-server-2017
+
+OutPut:
+
++----+---------+------------+----------------+
+
+| ID | Name    | FDate      | COUNT(FLI.Seq) |
+
++----+---------+------------+----------------+
+
+|  1 | Jones   | 2015-10-06 |              3 |
+
+|  2 | Smith   | 2015-10-06 |              3 |
+
+|  3 | Walker  | 2015-10-08 |              3 |
+
+|  4 | Daniel  | 2015-10-08 |              2 |
+
+|  5 | Samuel  | 2015-10-06 |              3 |
+
+|  6 | Allan   | 2015-10-08 |              3 |
+
+|  7 | Madison | 2015-10-06 |              1 |
+
+|  8 | Ryan    | 2015-10-08 |              2 |
+
++----+---------+------------+----------------+
+
++----+---------+--------------+-------------+----------------+
+| ID | Name    | MONTH(FDate) | YEAR(FDate) | COUNT(FLI.Seq) |
++----+---------+--------------+-------------+----------------+
+|  1 | Jones   |           10 |        2015 |              3 |
+|  2 | Smith   |           10 |        2015 |              3 |
+|  3 | Walker  |           10 |        2015 |              3 |
+|  4 | Daniel  |           10 |        2015 |              2 |
+|  5 | Samuel  |           10 |        2015 |              3 |
+|  6 | Allan   |           10 |        2015 |              3 |
+|  7 | Madison |           10 |        2015 |              1 |
+|  8 | Ryan    |           10 |        2015 |              2 |
++----+---------+--------------+-------------+----------------+
