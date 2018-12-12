@@ -90,8 +90,6 @@ final class Main {
 
         System.out.println("\nHere is what " + name + " is doing on " + date + ".");
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt", true));
-
         // Loops through the results of the query, formats it into a table, and writes the result to a text file.
         while (rs.next()) {
             StringBuilder output = new StringBuilder();
@@ -103,10 +101,8 @@ final class Main {
             output.append("\n| To: " + rs.getString("T"));
             output.append("\n| Flight Date: " + rs.getString("FDate"));
             output.append("\n-------------------------------------------\n");
-            writer.append(output);
             System.out.println(output);
         }
-        writer.close();
 
         rs.close();
 
@@ -141,6 +137,25 @@ final class Main {
 
         stmt.executeUpdate("update FlightLegInstance SET Pilot = " + ID + " where (FLNO, Seq, FDate) = (" +
                 wrapInQuotes(FLNO) + ", " + wrapInQuotes(Seq) + ", " + wrapInQuotes(FDate) + ")");
+
+        rs = stmt.executeQuery("select * from FlightLegInstance where (FLNO, Seq, FDate) = ("
+                + wrapInQuotes(FLNO) + ", " + wrapInQuotes(Seq) + ", " + wrapInQuotes(FDate) + ")");
+
+        System.out.println("FlightLegInstance updated with new ID.");
+        while (rs.next()) {
+            StringBuilder output = new StringBuilder();
+            output.append("-------------------------------------------\n");
+            output.append("| FLNO: " + rs.getString("FLNO"));
+            output.append("\n| Seq: " + rs.getString("Seq"));
+            output.append("\n| FDate: " + rs.getString("FDate"));
+            output.append("\n| ActDept: " + rs.getString("ActDept"));
+            output.append("\n| ActArr: " + rs.getString("ActArr"));
+            output.append("\n| Pilot: " + rs.getString("Pilot"));
+            output.append("\n-------------------------------------------\n");
+            System.out.println(output);
+        }
+
+        rs.close();
     }
 
     // Add a pilot to the database. Input is ID, Name, and the date hired.
@@ -175,6 +190,21 @@ final class Main {
         }
 
         stmt.executeUpdate("insert into Pilot values (" + ID + ", " + wrapInQuotes(name) + ", " + wrapInQuotes(date) + ")");
+
+        rs = stmt.executeQuery("select * from Pilot where ID = " + wrapInQuotes(ID));
+
+        System.out.println("Pilot table updated with new Pilot.");
+        while (rs.next()) {
+            StringBuilder output = new StringBuilder();
+            output.append("-------------------------------------------\n");
+            output.append("| ID: " + rs.getString("ID"));
+            output.append("\n| Name: " + rs.getString("Name"));
+            output.append("\n| Date Hired: " + rs.getString("DateHired"));
+            output.append("\n-------------------------------------------\n");
+            System.out.println(output);
+        }
+
+        rs.close();
     }
 
     // Helper function to wrap strings in quotes for use with query strings

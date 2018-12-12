@@ -1,57 +1,146 @@
--
+Welcome to Project 4! Please select one of the following options by entering the corresponding number.
+
+1. Check if Pilot is busy on a certain day and show the pilot assignments for
+this day.
+2. Assign a Pilot to a flight leg instance
+3. Add a Pilot
+4. Quit
+
+Enter command> 1
+Enter name of pilot> Jones
+Enter a certain day to check in format year-month-day> 2015-10-08
+
+Here is what Jones is doing on 2015-10-08.
 -------------------------------------------
-| ID: 12
-| Name: Zach
+| ID: 1
+| Name: Jones
+| FLNO: 500
+| From: Chicago
+| To: Los Angeles
+| Flight Date: 2015-10-08
+-------------------------------------------
+
+-------------------------------------------
+| ID: 1
+| Name: Jones
+| FLNO: 500
+| From: Ft. Lauderdale
+| To: Chicago
+| Flight Date: 2015-10-08
+-------------------------------------------
+
+
+1. Check if Pilot is busy on a certain day and show the pilot assignments for
+this day.
+2. Assign a Pilot to a flight leg instance
+3. Add a Pilot
+4. Quit
+
+Enter command> 2
+Enter the ID of the pilot> 1
+Enter the FLNO> 500
+Enter the Seq> 100
+Enter the FDate of format year-month-day> 2015-10-08
+ERROR: No flight leg instances match that given key.
+
+1. Check if Pilot is busy on a certain day and show the pilot assignments for
+this day.
+2. Assign a Pilot to a flight leg instance
+3. Add a Pilot
+4. Quit
+
+Enter command> 2
+Enter the ID of the pilot> 1
+Enter the FLNO> 100
+Enter the Seq> 1
+Enter the FDate of format year-month-day> 2015-10-08
+FlightLegInstance updated with new ID.
+-------------------------------------------
 | FLNO: 100
-| From: Chicago
-| To: Dallas
-| Flight Date: 2015-10-06
+| Seq: 1
+| FDate: 2015-10-08
+| ActDept: 11:30:00
+| ActArr: 13:30:00
+| Pilot: 1
 -------------------------------------------
+
+
+1. Check if Pilot is busy on a certain day and show the pilot assignments for
+this day.
+2. Assign a Pilot to a flight leg instance
+3. Add a Pilot
+4. Quit
+
+Enter command> 3
+Enter an ID for the pilot> 1
+Enter name of pilot> Zach
+Enter the date hired for Zach in format year-month-day> 2018-12-01
+
+ERROR: This ID is already in use.
+
+1. Check if Pilot is busy on a certain day and show the pilot assignments for
+this day.
+2. Assign a Pilot to a flight leg instance
+3. Add a Pilot
+4. Quit
+
+Enter command> 3
+Enter an ID for the pilot> 11
+Enter name of pilot> Zachery
+Enter the date hired for Zachery in format year-month-day> 2018-12-01
+Pilot table updated with new Pilot.
 -------------------------------------------
-| ID: 1
-| Name: Jones
-| FLNO: 500
-| From: Chicago
-| To: Los Angeles
-| Flight Date: 2015-10-08
+| ID: 11
+| Name: Zachery
+| Date Hired: 2018-12-01
 -------------------------------------------
+
+
+1. Check if Pilot is busy on a certain day and show the pilot assignments for
+this day.
+2. Assign a Pilot to a flight leg instance
+3. Add a Pilot
+4. Quit
+
+Enter command> 2
+Enter the ID of the pilot> 11
+Enter the FLNO> 300
+Enter the Seq> 1
+Enter the FDate of format year-month-day> 2015-10-06
+FlightLegInstance updated with new ID.
 -------------------------------------------
-| ID: 1
-| Name: Jones
-| FLNO: 500
-| From: Ft. Lauderdale
-| To: Chicago
-| Flight Date: 2015-10-08
+| FLNO: 300
+| Seq: 1
+| FDate: 2015-10-06
+| ActDept: 14:30:00
+| ActArr: 17:30:00
+| Pilot: 11
 -------------------------------------------
--------------------------------------------
-| ID: 1
-| Name: Jones
-| FLNO: 500
-| From: Chicago
-| To: Los Angeles
-| Flight Date: 2015-10-08
--------------------------------------------
--------------------------------------------
-| ID: 1
-| Name: Jones
-| FLNO: 500
-| From: Ft. Lauderdale
-| To: Chicago
-| Flight Date: 2015-10-08
--------------------------------------------
--------------------------------------------
-| ID: 2
-| Name: Smith
-| FLNO: 200
-| From: San Francisco
-| To: Chicago
-| Flight Date: 2015-10-06
--------------------------------------------
--------------------------------------------
-| ID: 2
-| Name: Smith
-| FLNO: 200
-| From: Chicago
-| To: New York
-| Flight Date: 2015-10-06
--------------------------------------------
+
+
+1. Check if Pilot is busy on a certain day and show the pilot assignments for
+this day.
+2. Assign a Pilot to a flight leg instance
+3. Add a Pilot
+4. Quit
+
+Enter command> x
+Try another command.
+
+1. Check if Pilot is busy on a certain day and show the pilot assignments for
+this day.
+2. Assign a Pilot to a flight leg instance
+3. Add a Pilot
+4. Quit
+
+Enter command>
+Try another command.
+
+1. Check if Pilot is busy on a certain day and show the pilot assignments for
+this day.
+2. Assign a Pilot to a flight leg instance
+3. Add a Pilot
+4. Quit
+
+Enter command> q
+Goodbye!
